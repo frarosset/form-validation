@@ -1,0 +1,156 @@
+:root {
+  --main-color: salmon;
+  --accent-color: pink;
+  --white-color: snow;
+  --grey-color: silver;
+  --black-color: black;
+
+  --font-size-label: 0.8em;
+  --font-size-input: 1.2em;
+  --font-size-button: 2em;
+  --font-size-message: 0.5em;
+
+  --padding-input: 0.5rem;
+
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--main-color);
+  height: 100dvh;
+  max-height: 100dvh;
+}
+
+body,
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--accent-color);
+  text-shadow: 1px 1px 0px var(--black-color), 1px -1px 0px var(--black-color),
+    -1px -1px 0px var(--black-color), -1px 1px 0px var(--black-color);
+}
+
+form {
+  gap: 3em;
+  padding: 5em 1em;
+  width: 100%;
+}
+
+.input-fields {
+  background-color: var(--accent-color);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 3px;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  max-width: 20em;
+  min-width: 20em;
+}
+
+@media all and (orientation: landscape) {
+  .input-fields {
+    grid-template-columns: 1fr 1fr;
+    max-width: 30em;
+    min-width: 30em;
+  }
+  .input-field:has(#email) {
+    grid-column: 1 / span 2;
+  }
+}
+
+.input-field {
+  background-color: var(--white-color);
+  position: relative;
+  width: 100%;
+}
+
+.input-field > label {
+  color: var(--main-color);
+  font-size: var(--font-size-label);
+  font-variant: small-caps;
+  padding: 0 var(--padding-input);
+  position: absolute;
+  text-transform: lowercase;
+  top: calc(var(--padding-input));
+  width: 100%;
+}
+
+.input-field > input,
+.input-field > select {
+  background-color: var(--white-color);
+  border: none;
+  font-size: var(--font-size-input);
+  padding: calc(var(--font-size-input) + var(--padding-input))
+    var(--padding-input) var(--padding-input);
+  width: 100%;
+}
+
+select:required:invalid {
+  color: var(--grey-color);
+}
+option[value=""][disabled] {
+  display: none;
+}
+
+input:valid,
+option {
+  color: var(--black-color);
+}
+
+input:invalid {
+  color: var(--main-color);
+}
+
+.input-field > input:focus,
+.input-field > select:focus {
+  outline: none;
+}
+
+.input-field:has(> input:focus) > label,
+.input-field:has(> select:focus) > label {
+  text-decoration: underline;
+}
+
+.input-field:has(> input:required) > label:after,
+.input-field:has(> select:required) > label:after {
+  color: var(--grey-color);
+  content: "(required)";
+  display: inline-block;
+  font-size: var(--font-size-message);
+  font-variant: none;
+  padding-left: 1em;
+  text-decoration: none !important;
+}
+
+.input-field > p {
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  font-size: var(--font-size-message);
+  line-height: 1;
+  padding: 0 var(--padding-input);
+  margin-bottom: var(--padding-input);
+  vertical-align: center;
+}
+
+button {
+  background-color: var(--accent-color);
+  border-radius: var(--radius);
+  border: 3px solid var(--accent-color);
+  padding: 1em 1.5em;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

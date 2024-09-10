@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Sign up!</h1>
+    </header>
+    <main>
+      <form novalidate id="main-form">
+        <div class="input-fields">
+          <div class="input-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+            <p id="email-message"></p>
+          </div>
+          <div class="input-field">
+            <label for="country">Country</label>
+            <select id="country" required>
+              <option value="" disabled selected>Select your country</option>
+              <option value="it">Italy</option>
+              <option value="es">Spain</option>
+              <option value="uk">UK</option>
+              <option value="us">USA</option>
+            </select>
+            <p id="country-message"></p>
+          </div>
+          <div class="input-field">
+            <label for="zip-code">ZIP Code</label>
+            <input id="zip-code" required />
+            <p id="zip-code-message"></p>
+          </div>
+          <div class="input-field">
+            <label for="password">Password</label>
+            <input id="password" type="password" required />
+            <p id="password-message"></p>
+          </div>
+          <div class="input-field">
+            <label for="password-confirmation">Password Confirmation</label>
+            <input id="password-confirmation" type="password" required />
+            <p id="password-confirmation-message"></p>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
